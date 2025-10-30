@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karl Mattheus Mago | BSCS-ML Portfolio</title>
+  <style>
+
+
+     /*project design section*/
+    .project-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: #7597de;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.1s, transform 0.1s;
+}
+
+.project-link:hover {
+  background: #5b7ccf;
+  transform: translateY(-3px);
+}
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a0a;
+    color: #f1f1f1;
+    line-height: 1.6;
+  }
+
+  header {
+    background: linear-gradient(90deg, #2b1055, #7597de);
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+
+  /* ===== HEADER LAYOUT ===== */
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 600px) {
+    .header-content {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+
+  .header-character {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(117, 151, 222, 0.6);
+  }
+
+  .header-text h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .header-text p {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+  }
+
+  section {
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  h2 {
+    border-bottom: 2px solid #7597de;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .about, .skills, .projects, .contact, .education {
+    margin-top: 3rem;
+  }
+
+  /* ===== SKILLS & PROJECTS ===== */
+  .skills-list, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill, .project {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .skill:hover, .project:hover {
+    transform: translateY(-5px);
+    background: #222;
+  }
+
+  /* ===== EDUCATION SECTION ===== */
+  .education-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .school-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 1rem;
+  }
+
+  .education-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 8px rgba(117, 151, 222, 0.1);
+  }
+
+  .education-item:hover {
+    transform: translateY(-5px);
+    background: #222;
+    box-shadow: 0 0 12px rgba(117, 151, 222, 0.3);
+  }
+
+  .education-item span {
+    font-size: 1.1rem;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact a {
+    color: #7597de;
+    text-decoration: none;
+  }
+
+  .contact a:hover {
+    text-decoration: underline;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #aaa;
+    border-top: 1px solid #222;
+  }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <img src="images/soundy.png" alt="Character Head" class="header-character">
+      <div class="header-text">
+        <h1>Karl Mattheus W. Mago</h1>
+        <p>BSCS Specialization in Machine Learning</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>Hello! My name is Karl Mago, and I’m currently a third-year BS Computer Science student specializing in Machine Learning. Welcome to my website! Ever since I was a kid, I’ve been very fond of technology and fascinated by how it works, tinkering with gadgets and learning the mechanics behind them. On this website, you’ll get to see my personal projects related to the field I’m studying. I hope you enjoy your visit!</p>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill">HTML</div>
+      <div class="skill">Python</div>
+      <div class="skill">Java</div>
+      <div class="skill">Machine Learning</div>
+      <div class="skill">MySQL</div>
+      <div class="skill">Computer Hardware</div>
+    </div>
+  </section>
+
+  <section class="education">
+    <h2>Education</h2>
+    <div class="education-list">
+      <div class="education-item">
+        <img src="images/cspb.jfif" alt="Colegio De San Pascual Baylon Logo" class="school-logo">
+        <span>Colegio De San Pascual Baylon</span>
+      </div>
+      <div class="education-item">
+        <img src="images/smacc.png" alt="Saint Mary's Academy of Caloocan City Logo" class="school-logo">
+        <span>Saint Mary's Academy of Caloocan City</span>
+      </div>
+      <div class="education-item">
+        <img src="images/sti.png" alt="STI College Munoz Logo" class="school-logo">
+        <span>STI College of Munoz</span>
+      </div>
+      <div class="education-item">
+        <img src="images/nu.png" alt="National University Manila" class="school-logo">
+        <span>National University Manila</span>
+      </div>
+    </div>
+  </section>
+
+<section class="projects">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project">
+      <h3>Colorscope</h3>
+      <p>A Python-based Machine Learning project that identifies colors in real time using computer vision.
+        It includes an integrated SQLite database for user login and authentication.</p>
+      <p><strong>Collaborators:</strong> Adrian Liao, Genesis Navarro</p>
+      <a href="https://colorscopeterm11.onrender.com" target="_blank" class="project-link">View Project</a>
+    </div>
+  </div>
+</section>
+
+
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:Karlmago2003@gmail.com">Karlmago2003@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/MaboKarl" target="_blank">github.com/MaboKarl</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/karl-mattheus-mago-28405028a" target="_blank">linkedin.com/in/karl-mattheus-mago-28405028a</a></p>
+  </section>
+
+  <footer>
+    
+  </footer>
+
+</body>
+</html>
