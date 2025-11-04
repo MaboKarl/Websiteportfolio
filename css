@@ -1,0 +1,15 @@
+.project-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.project-images img {
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.project-images img:hover {
+  transform: scale(1.05);
+}
