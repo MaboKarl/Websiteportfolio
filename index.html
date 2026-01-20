@@ -4,166 +4,463 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Karl Mattheus Mago | BSCS-ML Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
 
-
-     /*project design section*/
-    .project-link {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background: #7597de;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: background 0.1s, transform 0.1s;
-}
-
-.project-link:hover {
-  background: #5b7ccf;
-  transform: translateY(-3px);
-}
-
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #0a0a0a;
-    color: #f1f1f1;
-    line-height: 1.6;
-  }
-
-  header {
-    background: linear-gradient(90deg, #2b1055, #7597de);
-    text-align: center;
-    padding: 4rem 1rem;
-  }
-
-  /* ===== HEADER LAYOUT ===== */
-  .header-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  @media (min-width: 600px) {
-    .header-content {
-      flex-direction: row;
-      text-align: left;
+    /* ===== KEYFRAME ANIMATIONS ===== */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-  }
 
-  .header-character {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #fff;
-    box-shadow: 0 0 10px rgba(117, 151, 222, 0.6);
-  }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .header-text h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-  }
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
 
-  .header-text p {
-    font-size: 1.2rem;
-    color: #dcdcdc;
-  }
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
 
-  section {
-    padding: 3rem 2rem;
-    max-width: 1000px;
-    margin: auto;
-  }
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
-  h2 {
-    border-bottom: 2px solid #7597de;
-    display: inline-block;
-    padding-bottom: 0.3rem;
-    margin-bottom: 1rem;
-  }
+    @keyframes scrollFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .about, .skills, .projects, .contact, .education {
-    margin-top: 3rem;
-  }
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
 
-  /* ===== SKILLS & PROJECTS ===== */
-  .skills-list, .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-  }
+    .scroll-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+      animation: scrollFadeIn 0.6s ease-out forwards;
+    }
 
-  .skill, .project {
-    background: #1a1a1a;
-    padding: 1.5rem;
-    border-radius: 10px;
-    transition: transform 0.2s, background 0.2s;
-  }
+    /* ===== PROJECT DESIGN SECTION ===== */
+    .project-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, #7597de 0%, #5b7ccf 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(117, 151, 222, 0.4);
+    }
 
-  .skill:hover, .project:hover {
-    transform: translateY(-5px);
-    background: #222;
-  }
+    .project-link:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px rgba(117, 151, 222, 0.6);
+      background: linear-gradient(135deg, #5b7ccf 0%, #4a68b8 100%);
+    }
 
-  /* ===== EDUCATION SECTION ===== */
-  .education-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-  }
+    .project-link:active {
+      transform: translateY(-2px);
+    }
 
-  .school-logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
-    object-fit: cover;
-    margin-right: 1rem;
-  }
+    /* ===== BODY & GENERAL ===== */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(26, 15, 46, 0.85) 100%), url('images/background.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      color: #f1f1f1;
+      line-height: 1.8;
+    }
 
-  .education-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: #1a1a1a;
-    padding: 1.5rem;
-    border-radius: 10px;
-    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 0 8px rgba(117, 151, 222, 0.1);
-  }
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(90deg, rgba(43, 16, 85, 0.7), rgba(117, 151, 222, 0.7)), url('images/monday.gif');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 5rem 1rem;
+      animation: fadeInDown 0.8s ease-out;
+      box-shadow: 0 10px 40px rgba(117, 151, 222, 0.3);
+      position: relative;
+    }
 
-  .education-item:hover {
-    transform: translateY(-5px);
-    background: #222;
-    box-shadow: 0 0 12px rgba(117, 151, 222, 0.3);
-  }
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
 
-  .education-item span {
-    font-size: 1.1rem;
-  }
+    @media (min-width: 600px) {
+      .header-content {
+        flex-direction: row;
+        text-align: left;
+        gap: 3rem;
+      }
+    }
 
-  /* ===== CONTACT ===== */
-  .contact a {
-    color: #7597de;
-    text-decoration: none;
-  }
+    .header-character {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 0 30px rgba(117, 151, 222, 0.8), inset 0 0 20px rgba(117, 151, 222, 0.3);
+      animation: slideInLeft 0.8s ease-out;
+    }
 
-  .contact a:hover {
-    text-decoration: underline;
-  }
+    .header-text h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: -1px;
+      animation: slideInRight 0.8s ease-out 0.1s both;
+      line-height: 1.1;
+    }
 
-  /* ===== FOOTER ===== */
-  footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
-    color: #aaa;
-    border-top: 1px solid #222;
-  }
+    .header-text p {
+      font-size: 1.3rem;
+      color: #e0e0e0;
+      font-weight: 300;
+      margin: 0.5rem 0 0 0;
+      animation: slideInRight 0.8s ease-out 0.2s both;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 4.5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .about {
+      animation-delay: 0.1s;
+      background: rgba(26, 26, 26, 0.5);
+      margin: 2rem auto;
+      border-radius: 12px;
+      padding: 4rem 3rem;
+    }
+
+    .skills {
+      animation-delay: 0.2s;
+      padding: 4.5rem 2rem;
+    }
+
+    .education {
+      animation-delay: 0.3s;
+      background: rgba(26, 26, 26, 0.5);
+      margin: 2rem auto;
+      border-radius: 12px;
+      padding: 4rem 3rem;
+    }
+
+    .projects {
+      animation-delay: 0.4s;
+      padding: 4.5rem 2rem;
+    }
+
+    .contact {
+      animation-delay: 0.5s;
+      background: rgba(26, 26, 26, 0.5);
+      margin: 2rem auto;
+      border-radius: 12px;
+      padding: 4rem 3rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      border-bottom: 3px solid #7597de;
+      display: inline-block;
+      padding-bottom: 0.8rem;
+      margin-bottom: 2rem;
+      animation: scaleIn 0.5s ease-out;
+      letter-spacing: -0.5px;
+    }
+
+    .about p, .contact p {
+      font-size: 1.05rem;
+      color: #d0d0d0;
+      line-height: 1.9;
+    }
+
+    /* ===== SKILLS SECTION ===== */
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill {
+      background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      border-left: 5px solid #7597de;
+      transition: all 0.3s ease;
+      animation: scaleIn 0.5s ease-out;
+      animation-fill-mode: both;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #f1f1f1;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(117, 151, 222, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .skill:hover::before {
+      left: 100%;
+    }
+
+    .skill {
+      animation-delay: calc(0.05s * var(--index, 0));
+    }
+
+    .skill:hover {
+      transform: translateY(-12px);
+      border-left-color: #a8c5f0;
+      box-shadow: 0 15px 40px rgba(117, 151, 222, 0.3);
+      background: linear-gradient(135deg, #252525 0%, #2e2e2e 100%);
+    }
+
+    /* ===== EDUCATION SECTION ===== */
+    .education-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .school-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .education-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 5px solid #7597de;
+      transition: all 0.3s ease;
+      animation: slideInLeft 0.6s ease-out;
+      animation-fill-mode: both;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .education-item {
+      animation-delay: calc(0.1s * var(--index, 0));
+    }
+
+    .education-item:hover {
+      transform: translateY(-8px);
+      border-left-color: #a8c5f0;
+      box-shadow: 0 18px 45px rgba(117, 151, 222, 0.25);
+      background: linear-gradient(135deg, #252525 0%, #2e2e2e 100%);
+    }
+
+    .education-item:hover .school-logo {
+      transform: scale(1.15) rotate(8deg);
+    }
+
+    .education-item span {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #f1f1f1;
+    }
+
+    /* ===== PROJECTS SECTION ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .project {
+      background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border-left: 5px solid #7597de;
+      transition: all 0.3s ease;
+      animation: scaleIn 0.5s ease-out;
+      animation-fill-mode: both;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .project:first-child {
+      grid-column: span 1;
+    }
+
+    @media (min-width: 1200px) {
+      .project:first-child {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+    }
+
+    .project {
+      animation-delay: calc(0.1s * var(--index, 0));
+    }
+
+    .project h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .project p {
+      color: #c0c0c0;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .project p strong {
+      color: #a8c5f0;
+    }
+
+    .project:hover {
+      transform: translateY(-12px);
+      border-left-color: #a8c5f0;
+      box-shadow: 0 20px 50px rgba(117, 151, 222, 0.3);
+      background: linear-gradient(135deg, #252525 0%, #2e2e2e 100%);
+    }
+
+    /* ===== PROJECT IMAGES ===== */
+    .project-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+
+    .project-images img {
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      max-width: 100%;
+      height: auto;
+    }
+
+    .project-images img:hover {
+      transform: scale(1.1) translateY(-8px);
+      box-shadow: 0 15px 40px rgba(117, 151, 222, 0.4);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact a {
+      color: #7597de;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .contact a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #7597de, #a8c5f0);
+      transition: width 0.3s ease;
+    }
+
+    .contact a:hover::after {
+      width: 100%;
+    }
+
+    .contact a:hover {
+      color: #a8c5f0;
+      text-shadow: 0 0 10px rgba(117, 151, 222, 0.5);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      font-size: 0.95rem;
+      color: #888;
+      border-top: 1px solid #333;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
   </style>
 </head>
 <body>
@@ -172,7 +469,7 @@
     <div class="header-content">
       <img src="images/soundy.png" alt="Character Head" class="header-character">
       <div class="header-text">
-        <h1>Karl Mattheus W. Mago</h1>
+        <h1>Karl Mattheus<br>W. Mago</h1>
         <p>BSCS Specialization in Machine Learning</p>
       </div>
     </div>
@@ -180,90 +477,203 @@
 
   <section class="about">
     <h2>About Me</h2>
-    <p>Hello! My name is Karl Mago, and I’m currently a third-year BS Computer Science student specializing in Machine Learning. Welcome to my website! Ever since I was a kid, I’ve been very fond of technology and fascinated by how it works, tinkering with gadgets and learning the mechanics behind them. On this website, you’ll get to see my personal projects related to the field I’m studying. I hope you enjoy your visit!</p>
+    <p>Hello! My name is <span style="color: #a8c5f0; font-weight: 600;">Karl Mago</span>, and I'm currently a third-year BS Computer Science student specializing in Machine Learning. Welcome to my website! Ever since I was a kid, I've been very fond of technology and fascinated by how it works, tinkering with gadgets and learning the mechanics behind them. On this website, you'll get to see my personal projects related to the field I'm studying. I hope you enjoy your visit!</p>
   </section>
 
   <section class="skills">
     <h2>Skills</h2>
     <div class="skills-list">
-      <div class="skill">HTML</div>
-      <div class="skill">Python</div>
-      <div class="skill">Java</div>
-      <div class="skill">Machine Learning</div>
-      <div class="skill">MySQL</div>
-      <div class="skill">Computer Hardware</div>
-      <div class="skill">Jupyter</div>
-      <div class="skill">Css</div>
+      <div class="skill" style="--index: 0">
+        <i class="fab fa-html5" style="color: #e34c26; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        HTML
+      </div>
+      <div class="skill" style="--index: 1">
+        <i class="fab fa-python" style="color: #3776ab; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Python
+      </div>
+      <div class="skill" style="--index: 2">
+        <i class="fab fa-java" style="color: #007396; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Java
+      </div>
+      <div class="skill" style="--index: 3">
+        <i class="fas fa-brain" style="color: #ff6b6b; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Machine Learning
+      </div>
+      <div class="skill" style="--index: 4">
+        <i class="fas fa-database" style="color: #00758f; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        MySQL
+      </div>
+      <div class="skill" style="--index: 5">
+        <i class="fas fa-microchip" style="color: #ffa500; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Computer Hardware
+      </div>
+      <div class="skill" style="--index: 6">
+        <i class="fas fa-laptop-code" style="color: #f37726; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Jupyter
+      </div>
+      <div class="skill" style="--index: 7">
+        <i class="fab fa-css3-alt" style="color: #563d7c; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        CSS
+      </div>
+      <div class="skill" style="--index: 8">
+        <i class="fab fa-js-square" style="color: #f7df1e; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        JavaScript
+      </div>
+      <div class="skill" style="--index: 9">
+        <i class="fab fa-react" style="color: #61dafb; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        React
+      </div>
+      <div class="skill" style="--index: 10">
+        <i class="fab fa-node-js" style="color: #68a063; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Node.js
+      </div>
+      <div class="skill" style="--index: 11">
+        <i class="fas fa-leaf" style="color: #13aa52; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        MongoDB
+      </div>
+      <div class="skill" style="--index: 12">
+        <i class="fab fa-git-alt" style="color: #f1502f; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Git
+      </div>
+      <div class="skill" style="--index: 13">
+        <i class="fas fa-cube" style="color: #ea7b22; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Blender
+      </div>
+      <div class="skill" style="--index: 14">
+        <i class="fas fa-image" style="color: #31a8ff; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Photoshop
+      </div>
+      <div class="skill" style="--index: 15">
+        <i class="fas fa-film" style="color: #9999ff; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Premiere Pro
+      </div>
+      <div class="skill" style="--index: 16">
+        <i class="fas fa-pencil-ruler" style="color: #ff2d2d; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Figma
+      </div>
+      <div class="skill" style="--index: 17">
+        <i class="fab fa-google" style="color: #4285f4; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Google Cloud
+      </div>
+      <div class="skill" style="--index: 18">
+        <i class="fas fa-cloud" style="color: #0078d4; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Azure
+      </div>
+      <div class="skill" style="--index: 19">
+        <i class="fas fa-globe" style="color: #0066ff; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Wix
+      </div>
+      <div class="skill" style="--index: 20">
+        <i class="fas fa-microchip" style="color: #ec1c24; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Arduino
+      </div>
+      <div class="skill" style="--index: 21">
+        <i class="fas fa-circle" style="color: #c51a4a; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Raspberry Pi
+      </div>
+      <div class="skill" style="--index: 22">
+        <i class="fab fa-ubuntu" style="color: #dd4814; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Ubuntu Linux
+      </div>
+      <div class="skill" style="--index: 23">
+        <i class="fab fa-docker" style="color: #2496ed; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Docker
+      </div>
+      <div class="skill" style="--index: 24">
+        <i class="fas fa-brain" style="color: #ffd700; font-size: 1.5rem; display: block; margin-bottom: 0.5rem;"></i>
+        Hugging Face
+      </div>
     </div>
   </section>
 
   <section class="education">
     <h2>Education</h2>
     <div class="education-list">
-      <div class="education-item">
+      <div class="education-item" style="--index: 0">
         <img src="images/cspb.jfif" alt="Colegio De San Pascual Baylon Logo" class="school-logo">
         <span>Colegio De San Pascual Baylon</span>
       </div>
-      <div class="education-item">
+      <div class="education-item" style="--index: 1">
         <img src="images/smacc.png" alt="Saint Mary's Academy of Caloocan City Logo" class="school-logo">
         <span>Saint Mary's Academy of Caloocan City</span>
       </div>
-      <div class="education-item">
+      <div class="education-item" style="--index: 2">
         <img src="images/sti.png" alt="STI College Munoz Logo" class="school-logo">
         <span>STI College of Munoz</span>
       </div>
-      <div class="education-item">
+      <div class="education-item" style="--index: 3">
         <img src="images/nu.png" alt="National University Manila" class="school-logo">
         <span>National University Manila</span>
       </div>
     </div>
   </section>
 
-<section class="projects">
-  <h2>Projects</h2>
-  <div class="projects-grid">
+  <section class="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
 
-    <div class="project">
-      <h3>Colorscope</h3>
-      <p>
-        A Python-based machine learning project that identifies colors in real time using computer vision.
-        It includes an integrated SQLite database for user login and authentication.
-      </p>
-      <p><strong>Collaborators:</strong> Adrian Liao, Genesis Navarro</p>
-      <a href="https://colorscopeterm11.onrender.com" target="_blank" class="project-link">View Project</a>
+      <div class="project" style="--index: 0">
+        <h3>🎨 Colorscope</h3>
+        <p>
+          A Python-based machine learning project that identifies colors in real time using computer vision. It includes an integrated SQLite database for user login and authentication.
+        </p>
+        <p><strong>Tech Stack:</strong> Python, OpenCV, SQLite, Machine Learning</p>
+        <p><strong>Collaborators:</strong> Adrian Liao, Genesis Navarro</p>
+        <a href="https://colorscopeterm11.onrender.com" target="_blank" class="project-link">View Project</a>
+      </div>
+
+      <div class="project" style="--index: 1">
+        <h3>🤖 Binky the Discord Bot</h3>
+        <p>
+          A Python-based Discord bot featuring music queuing, AI roleplay, image search, and AI-powered assistance through the GPT API, along with features such as persona prompts.
+        </p>
+        <p><strong>Tech Stack:</strong> Python, Discord.py, GPT API, Music Bot Library</p>
+        <div class="project-images">
+          <img src="images/Imageoutput.png" alt="Binky main interface" style="max-width: 100%; height: auto;">
+          <img src="images/Binkyai.png" alt="Binky command list" style="max-width: 100%; height: auto;">
+        </div>
+        <a href="https://github.com/MaboKarl/discordbot" target="_blank" class="project-link">Github repository</a>
+      </div>
+
     </div>
-
-    <div class="project">
-  <h3>Binky the Discord Bot</h3>
-  <p>
-    A Python-based Discord bot featuring music queuing, AI roleplay, image search, and AI-powered assistance through the GPT API, along with features such as persona prompts.
-  </p>
-  
-  
-  <div class="project-images">
-    <img src="images/Imageoutput.png" alt="Binky main interface" width="400" height="200">
-    <img src="images/Binkyai.png" alt="Binky command list" width="400" height="200">
-    
-  </div>
-
-  <a href="https://github.com/MaboKarl/discordbot" target="_blank" class="project-link">Github repository</a>
-</div>
-
-
-  </div>
-</section>
-
+  </section>
 
   <section class="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:Karlmago2003@gmail.com">Karlmago2003@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/MaboKarl" target="_blank">github.com/MaboKarl</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/karl-mattheus-mago-28405028a" target="_blank">linkedin.com/in/karl-mattheus-mago-28405028a</a></p>
+    <p>📧 Email: <a href="mailto:Karlmago2003@gmail.com">Karlmago2003@gmail.com</a></p>
+    <p>🔗 GitHub: <a href="https://github.com/MaboKarl" target="_blank">github.com/MaboKarl</a></p>
+    <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/karl-mattheus-mago-28405028a" target="_blank">linkedin.com/in/karl-mattheus-mago-28405028a</a></p>
   </section>
 
   <footer>
-    
+    <p>&copy; 2024 Karl Mattheus Mago. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Scroll Animation Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Add scroll-animate class to elements and observe them
+    document.addEventListener('DOMContentLoaded', () => {
+      const animateElements = document.querySelectorAll('.skill, .project, .education-item, section p');
+      animateElements.forEach(el => {
+        el.classList.add('scroll-animate');
+        observer.observe(el);
+      });
+    });
+  </script>
 
 </body>
 </html>
